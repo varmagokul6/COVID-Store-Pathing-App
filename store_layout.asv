@@ -18,7 +18,7 @@ y = find(x);
 x_coord = 0;
 y_coord = 0;
 hold on
-for i = 1:12
-    plot(x_coord, y_coord, 
+for i = 1:260
+    plot(x_coord, 
 end
 
