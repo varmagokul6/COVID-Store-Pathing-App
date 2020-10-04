@@ -50,8 +50,10 @@ row = 1;
 shelf_locations = [];
 shelf_index = [];
 
-for i = 1:size(vertical_shelves, 1) 
-    if vertical_shelves(i+1)==(vertical_shelves(i) + 1)
+for i = 1:size(vertical_shelves, 1)
+    if (i+1) >= length(vertical_shelves)
+        continue
+    elseif vertical_shelves(i+1)==(vertical_shelves(i) + 1)
         formatSpec = '%s%s';
         letter = itemDes(select);
         num = int2str(row);
