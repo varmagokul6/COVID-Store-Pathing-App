@@ -1,4 +1,5 @@
-function itemLocation = object_database(searchItem)
+%function itemLocation = object_database(searchItem)
+searchItem = 'Tomato Sauce';
 aisle = 'A';
 perpAisle = 1; %Condition of how many aisles are prependicular in the store configuration
 itemLib = readtable('Item Library.xlsx'); %Read and copy Excel sheet that lists items by department and relative spacing
@@ -14,4 +15,5 @@ end
 %This program only functions correctly when starting on an aisle with two sides 
 
 [aisleLoc,aisleDes]=find(strcmp(table2array(itemLib),searchItem)); %Locate the input within the item library
-itemLocation = [posMatrix(1,aisleDes),num2str(aisleLoc)]; %Create cell array for output
+itemLocation = {posMatrix(1,aisleDes),aisleLoc}; %Create cell array for output
+stringOut = strjoin(num2str(itemLocation(1),itemLocation(2));
