@@ -55,6 +55,7 @@ for i = 1:size(vertical_shelves, 1)
         shelf_locations = [shelf_locations, str];
         row = row + 1;
     else
+        row = 1;
         select = select + 1;
     end
 end
@@ -69,6 +70,7 @@ for i = 1:size(horizontal_shelves, 1)
         shelf_locations = [shelf_locations, str];
         row = row + 1;
     else
+        row = row + 1;
         select = select + 1;
     end
 end
