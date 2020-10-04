@@ -18,7 +18,7 @@ rngState = rng;
 prm = mobileRobotPRM(map,100);
 startLocation = [0 0];
 endLocation = [10 2];
-for i = 1:(length(path_find)-1)
+%for i = 1:(length(path_find)-1)
     
 path = findpath(prm,startLocation,endLocation);
 show(prm)
