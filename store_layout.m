@@ -7,8 +7,7 @@ grayimage = rgb2gray(J);
 bwimage = grayimage < 0.5;
 graph = binaryOccupancyMap(bwimage);
 
-show(graph);
-hold on
+
 
 store_matrix = checkOccupancy(graph);
 shelves = find(store_matrix);    %returns matrix indexes where value != 0

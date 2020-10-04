@@ -1,3 +1,6 @@
+%fileID = fopen('listOutput.txt', 'r');
+%groceries = fscanf(fileID, "%s\n", [1 Inf]);
+%groceries = readTable('listOutput.txt');
 
 fileName = 'listOutput.txt';
 % my sample text contains ---> apple, baseball, car, donut, & elephant in single column.
@@ -20,13 +23,10 @@ end
     
 store = store_layout;
 
-waypoints = [0, 0];
+waypoints = [];
 for i = 1:length(locations)
-    row = mod(store(locations(i, :)), 20);
-    col = 1 + (store(locations(i, :)) - row)/20;
-    waypoints = [waypoints; row, col];
+    waypoints = [waypoints; mod(store(locations(i)), 20), 1 + (store(locations(i)) - mod(store(locations(i)))/20)];
 end
-waypoints = [waypoints; 0, 0];
 
 prmSimple = mobileRobotPRM(map,100);
 %show(prmSimple)
