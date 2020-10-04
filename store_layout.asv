@@ -22,7 +22,7 @@ vertical_shelves = [];
 horizontal_shelves = [];
 row_num = size(store_matrix, 1);
 col_num = size(store_matrix, 2);
-total_size = row_num * col_num;
+tota
 for coord = 1:row_num*col_num
     if store_matrix(coord)==1 && store_matrix(coord+1)==1           %check if shelf is a vertical shelf
         vertical_shelves = [vertical_shelves;coord];
@@ -38,6 +38,10 @@ end
 
 % Determine available spots for products to be placed
 empty_products = [];
+for i=1:length(vertical_shelves)
+    
+
+
 
 
 %categorize vertical and horizontal shelves into separate aisles
@@ -50,10 +54,9 @@ row = 1;
 shelf_locations = [];
 shelf_index = [];
 
-for i = 1:size(vertical_shelves, 1)
-    if (i+1) >= length(vertical_shelves)
-        continue
-    elseif vertical_shelves(i+1)==(vertical_shelves(i) + 1)
+for i = 1:size(vertical_shelves, 1) 
+    if vertical_shelves(i+1)==(vertical_shelves(i) + 1)
+        %INSERT FUNCTION CALL
         formatSpec = '%s%s';
         letter = itemDes(select);
         num = int2str(row);
@@ -72,20 +75,15 @@ for i = 1:size(vertical_shelves, 1)
         select = select + 1;
     end
     right_neighbor = vertical_shelves(i) + row_num;
-    bottom_neighbor = vertical_shelves(i) - row_num;
-    
-    if (right_neighbor < total_size) 
-        empty_products = [empty_products, right_neighbor];
-    end
-    if (bottom_neighbor > 1)
-        empty_products = [empty_products, bottom_neighbor];
-    end
+    left_neighbor = vertical_shelves(i) - row_num;
+    if right_neighbor > 
+    empty_products = [empty_products, ];
     
 end
 
 for i = 1:size(horizontal_shelves, 1)
     if horizontal_shelves(i+1)==(horizontal_shelves(i) + row_num)
-
+        %INSERT FUNCTION CALL
         formatSpec = '%s%s';
         letter = itemDes(select);
         num = int2str(row);
@@ -103,11 +101,11 @@ for i = 1:size(horizontal_shelves, 1)
         row = row + 1;
         select = select + 1;
     end
-    
-    top_neighbor = horizontal_shelves(i) - 1;
-    bottom_neighbor = vertical_shelves(i) + 1;
 end
 
+
+
+% for simplification, we assume the aisles are big enough and that vertical shelves will be filled first. 
 
 
 % item_locations = [];
