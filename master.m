@@ -21,10 +21,11 @@ store_items = ["Milk", "Eggs", "Coffee"];
 % randomly assign store_items to a coordinate
 
 
-item_locations = [123, 111];
+item_locations = [];
 store = containers.Map(store_items, item_locations);
 
 % user input specifies shopping list
+
 
 
 % Traversing the Path
