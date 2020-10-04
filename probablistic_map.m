@@ -7,19 +7,29 @@ bwimage = grayimage < 0.5;
 map = binaryOccupancyMap(bwimage);
 
 
+store = store_layout;
 
-prmSimple = mobileRobotPRM(map,50);
-show(prmSimple)
+% waypoints = [];
+%for i = 1:length(list)
+%    waypoints = [waypoints; mod(store(list(i)), 20), 1 + (store(list(i)) - mod(store(list(i)))/20)];
+%end
+
+prmSimple = mobileRobotPRM(map,100);
+%show(prmSimple)
 
 
-path_find = [4 6; 6.5 12.5; 4 12; 12 14; 19 2; 16 12; 10 10; 14 6; 22 3];
+waypoints = [0 0; 14 6; 4 12; 12 1; 19 10; 0 0];
 
 rngState = rng;
 prm = mobileRobotPRM(map,100);
-startLocation = [0 0];
-endLocation = [10 2];
-%for i = 1:(length(path_find)-1)
-    
-path = findpath(prm,startLocation,endLocation);
-show(prm)
+size_way = size(waypoints);
+
+for i = 1:(size_way(1)-1)
+    startLocation = waypoints(i, :);
+    endLocation = waypoints(i+1, :);
+    path = findpath(prm,startLocation,endLocation);
+    hold on
+    show(prm)
+end
+
 
